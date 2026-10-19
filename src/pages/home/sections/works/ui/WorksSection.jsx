@@ -19,6 +19,7 @@ export function WorksSection() {
       <WorksLightbox
         items={WORKS.items}
         index={lightbox.index}
+        isOpen={lightbox.isOpen}
         onClose={lightbox.close}
         onPrev={lightbox.prev}
         onNext={lightbox.next}

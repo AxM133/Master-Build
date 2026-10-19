@@ -3,8 +3,8 @@ import { useCallback, useState } from 'react'
 export function useMobileMenu() {
   const [isOpen, setIsOpen] = useState(false)
 
-  const toggle = useCallback(() => setIsOpen((open) => !open), [])
+  const open = useCallback(() => setIsOpen(true), [])
   const close = useCallback(() => setIsOpen(false), [])
 
-  return { isOpen, toggle, close }
+  return { isOpen, open, close }
 }

@@ -1,4 +1,4 @@
-import { Container, Section, SectionDescription, SectionTitle, SegmentedControl } from '@/shared/ui'
+import { Container, Reveal, Section, SectionDescription, SectionTitle, SegmentedControl } from '@/shared/ui'
 import { TOP_PRODUCTS, useProductSelection, useTopProductsSection } from '../model'
 import { ProductGrid } from './ProductGrid'
 import { ProductQuickView } from './ProductQuickView'
@@ -12,9 +12,9 @@ export function TopProductsSection() {
       <Container>
         <SectionTitle>{TOP_PRODUCTS.title}</SectionTitle>
         <SectionDescription size="sm" className="mt-4 max-w-xl">{TOP_PRODUCTS.subtitle}</SectionDescription>
-        <div className="mt-8 flex justify-center">
+        <Reveal delay={150} className="mt-8 flex justify-center">
           <SegmentedControl options={TOP_PRODUCTS.sortOptions} value={sort} onChange={setSort} label={TOP_PRODUCTS.sortLabel} />
-        </div>
+        </Reveal>
 
         <ProductGrid
           key={sort}
@@ -30,8 +30,10 @@ export function TopProductsSection() {
       <ProductQuickView
         product={selection.activeProduct}
         initialColor={selection.activeColor}
+        isOpen={selection.isOpen}
         onClose={selection.close}
         onSubmit={selection.submit}
+        onOpenCart={selection.openCart}
       />
     </Section>
   )

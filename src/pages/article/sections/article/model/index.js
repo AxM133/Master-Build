@@ -1,0 +1,1 @@
+export { useArticlePage } from './useArticlePage'

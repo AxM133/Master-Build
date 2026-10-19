@@ -1,7 +1,6 @@
 import { useState } from 'react'
-import { getColorPrice } from '@/entities/product'
-import { DEFAULT_AREA } from '../config/constants'
-import { calculateOrder } from './calculateOrder'
+import { calculateOrder, getColorPrice } from '@/entities/product'
+import { DEFAULT_AREA, RESERVE_RATE } from '../config/constants'
 
 export function useProductConfigurator({ product, initialColor, onSubmit }) {
   const [color, setColor] = useState(initialColor ?? product.colors[0]?.name)
@@ -14,7 +13,7 @@ export function useProductConfigurator({ product, initialColor, onSubmit }) {
     area,
     piecesPerSquareMeter: product.piecesPerSquareMeter,
     price: pricePerMeter,
-    withReserve,
+    reserveRate: withReserve ? RESERVE_RATE : 0,
   })
 
   const submit = () => {
@@ -24,6 +23,7 @@ export function useProductConfigurator({ product, initialColor, onSubmit }) {
       image: product.image,
       color,
       price: pricePerMeter,
+      piecesPerSquareMeter: product.piecesPerSquareMeter,
       area: order.totalArea,
       pieces: order.pieces,
       total: order.total,

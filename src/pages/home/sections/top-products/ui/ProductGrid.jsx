@@ -1,5 +1,5 @@
 import { ProductCard } from '@/entities/product'
-import { Skeleton } from '@/shared/ui'
+import { Reveal, Skeleton } from '@/shared/ui'
 
 export function ProductGrid({ products, isLoading, skeletonCount, getColor, onColorSelect, onOpen }) {
   return (
@@ -7,14 +7,14 @@ export function ProductGrid({ products, isLoading, skeletonCount, getColor, onCo
       {isLoading
         ? Array.from({ length: skeletonCount }, (_, index) => <Skeleton key={index} className="h-[349px] rounded-[28px]" />)
         : products.map((product, index) => (
-            <div key={product.id} className="animate-fade-up" style={{ animationDelay: `${index * 60}ms` }}>
+            <Reveal key={product.id} delay={(index % 2) * 100}>
               <ProductCard
                 product={product}
                 selectedColor={getColor(product)}
                 onColorSelect={(color) => onColorSelect(product.id, color)}
                 onOpen={() => onOpen(product)}
               />
-            </div>
+            </Reveal>
           ))}
     </div>
   )

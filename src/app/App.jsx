@@ -1,19 +1,12 @@
-import { HomePage } from '@/pages/home'
-import { Footer } from '@/widgets/footer'
-import { Header } from '@/widgets/header'
+import { RouterProvider } from 'react-router-dom'
 import { QueryProvider } from './providers'
+import { router } from './router/router'
 import './styles/index.css'
 
 export function App() {
   return (
     <QueryProvider>
-      <div className="flex min-h-screen flex-col">
-        <Header />
-        <main className="flex-1">
-          <HomePage />
-        </main>
-        <Footer />
-      </div>
+      <RouterProvider router={router} />
     </QueryProvider>
   )
 }

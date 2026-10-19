@@ -8,38 +8,39 @@ export const SITE = {
   foundedYear: 2022,
 }
 
+// /#id — секции главной (работают с любой страницы), #id — якорь на текущей странице
 export const MAIN_NAV = [
-  { label: 'О компании', href: '/about' },
+  { label: 'О компании', href: '/#about' },
   { label: 'Укладка тротуарной плитки', href: '/installation' },
-  { label: 'Портфолио', href: '/portfolio' },
+  { label: 'Портфолио', href: '/#works' },
   { label: 'Полезно знать', href: '/articles' },
   { label: 'Доставка и оплата', href: '/delivery' },
-  { label: 'Контакты', href: '/contacts' },
+  { label: 'Контакты', href: '#contacts' },
 ]
 
 export const FOOTER_NAV = [
   {
     title: 'Каталог',
     links: [
-      { label: 'Акции', href: '/sales' },
-      { label: 'Тротуарная плитка', href: '/catalog/paving' },
-      { label: 'Бордюры', href: '/catalog/curbs' },
+      { label: 'Тротуарная плитка', href: '/#catalog' },
+      { label: 'Топ товаров', href: '/#top-products' },
+      { label: 'Наши работы', href: '/#works' },
     ],
   },
   {
     title: 'Сервисы',
     links: [
-      { label: 'Дизайн-проект', href: '/design' },
-      { label: 'Укладка брусчатки', href: '/installation' },
-      { label: 'Доставка', href: '/delivery' },
+      { label: 'Укладка плитки', href: '/installation' },
+      { label: 'Доставка и оплата', href: '/delivery' },
+      { label: 'Полезно знать', href: '/articles' },
     ],
   },
   {
     title: 'О компании',
     links: [
-      { label: 'Контакты', href: '/contacts' },
-      { label: 'Производство', href: '/production' },
-      { label: 'Портфолио', href: '/portfolio' },
+      { label: 'О нас', href: '/#about' },
+      { label: 'Производство', href: '/#production' },
+      { label: 'Контакты', href: '#contacts' },
     ],
   },
 ]

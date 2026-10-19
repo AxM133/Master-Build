@@ -1,3 +1,5 @@
+export { openCart } from './model/cartDrawer'
 export { addToCart, clearCart, removeFromCart } from './model/cartStore'
 export { useCart } from './model/useCart'
+export { CartDrawer } from './ui/CartDrawer'
 export { CartIndicator } from './ui/CartIndicator'

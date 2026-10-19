@@ -1,14 +1,15 @@
 import { CartIcon } from '@/shared/ui'
+import { openCart } from '../model/cartDrawer'
 import { useCart } from '../model/useCart'
 
-// TODO: страница /cart появится вместе с роутером
-export function CartIndicator({ href = '/cart' }) {
+export function CartIndicator() {
   const { count } = useCart()
 
   return (
-    <a
-      href={href}
-      aria-label={count ? `Заявка: позиций — ${count}` : 'Заявка пуста'}
+    <button
+      type="button"
+      onClick={openCart}
+      aria-label={count ? `Открыть заявку, позиций: ${count}` : 'Открыть заявку'}
       className="relative flex h-10 w-10 items-center justify-center rounded-full text-neutral-900 transition hover:bg-neutral-100 hover:text-primary"
     >
       <CartIcon className="h-6 w-6" />
@@ -20,6 +21,6 @@ export function CartIndicator({ href = '/cart' }) {
           {count}
         </span>
       )}
-    </a>
+    </button>
   )
 }

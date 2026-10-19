@@ -247,3 +247,98 @@ export const MoneyIcon = (props) => (
     <path d="M8 31v-5h5M46 31v-5h-5M8 41v5h5M46 41v5h-5" />
   </Icon>
 )
+
+export const ChevronUpIcon = (props) => (
+  <Icon {...props}>
+    <polyline points="18 15 12 9 6 15" />
+  </Icon>
+)
+
+export const ArrowLeftIcon = (props) => (
+  <Icon {...props}>
+    <line x1="19" y1="12" x2="5" y2="12" />
+    <polyline points="12 19 5 12 12 5" />
+  </Icon>
+)
+
+export const TrashIcon = (props) => (
+  <Icon {...props}>
+    <polyline points="3 6 5 6 21 6" />
+    <path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" />
+  </Icon>
+)
+
+export const SearchIcon = (props) => (
+  <Icon {...props}>
+    <circle cx="11" cy="11" r="7" />
+    <line x1="21" y1="21" x2="16" y2="16" />
+  </Icon>
+)
+
+export const CardIcon = (props) => (
+  <Icon {...props}>
+    <rect x="2" y="5" width="20" height="14" rx="2" />
+    <line x1="2" y1="10" x2="22" y2="10" />
+    <line x1="6" y1="15" x2="10" y2="15" />
+  </Icon>
+)
+
+export const CashIcon = (props) => (
+  <Icon {...props}>
+    <rect x="2" y="6" width="20" height="12" rx="2" />
+    <circle cx="12" cy="12" r="2.5" />
+    <path d="M6 9v.01M18 15v.01" />
+  </Icon>
+)
+
+export const DocumentIcon = (props) => (
+  <Icon {...props}>
+    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+    <polyline points="14 2 14 8 20 8" />
+    <line x1="8" y1="13" x2="16" y2="13" />
+    <line x1="8" y1="17" x2="13" y2="17" />
+  </Icon>
+)
+
+export const BoxIcon = (props) => (
+  <Icon {...props}>
+    <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" />
+    <polyline points="3.27 6.96 12 12.01 20.73 6.96" />
+    <line x1="12" y1="22.08" x2="12" y2="12" />
+  </Icon>
+)
+
+export const InfoIcon = (props) => (
+  <Icon {...props}>
+    <circle cx="12" cy="12" r="10" />
+    <line x1="12" y1="16" x2="12" y2="12" />
+    <line x1="12" y1="8" x2="12.01" y2="8" />
+  </Icon>
+)
+
+export const CalendarIcon = (props) => (
+  <Icon {...props}>
+    <rect x="3" y="4" width="18" height="18" rx="2" />
+    <line x1="16" y1="2" x2="16" y2="6" />
+    <line x1="8" y1="2" x2="8" y2="6" />
+    <line x1="3" y1="10" x2="21" y2="10" />
+  </Icon>
+)
+
+export const LayersIcon = (props) => (
+  <Icon {...props}>
+    <polygon points="12 2 2 7 12 12 22 7 12 2" />
+    <polyline points="2 17 12 22 22 17" />
+    <polyline points="2 12 12 17 22 12" />
+  </Icon>
+)
+
+export const ShareIcon = (props) => (
+  <Icon {...props}>
+    <circle cx="18" cy="5" r="3" />
+    <circle cx="6" cy="12" r="3" />
+    <circle cx="18" cy="19" r="3" />
+    <line x1="8.59" y1="13.51" x2="15.42" y2="17.49" />
+    <line x1="15.41" y1="6.51" x2="8.59" y2="10.49" />
+  </Icon>
+)

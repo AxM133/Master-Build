@@ -1,4 +1,5 @@
 import { cn } from '@/shared/lib'
+import { Reveal } from './Reveal'
 
 const SIZES = {
   xs: 'text-xs leading-[15px]',
@@ -12,5 +13,9 @@ const TONES = {
 
 // Размер и цвет — через пропсы, а не className: конфликтующие tailwind-классы не перебивают друг друга
 export function SectionDescription({ size = 'xs', tone = 'muted', className, children }) {
-  return <p className={cn('mx-auto text-center', SIZES[size], TONES[tone], className)}>{children}</p>
+  return (
+    <Reveal as="p" delay={100} className={cn('mx-auto text-center', SIZES[size], TONES[tone], className)}>
+      {children}
+    </Reveal>
+  )
 }

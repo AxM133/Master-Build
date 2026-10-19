@@ -1,12 +1,12 @@
 import { useRef } from 'react'
 import { createPortal } from 'react-dom'
-import { cn, useEscapeKey, useLockBodyScroll, useRestoreFocus } from '@/shared/lib'
+import { cn, useEscapeKey, useLockBodyScroll, usePresence, useRestoreFocus } from '@/shared/lib'
 import { CloseIcon } from './icons'
 
 const VARIANTS = {
   card: {
     backdrop: 'bg-black/60 backdrop-blur-sm',
-    dialog: 'max-h-[92vh] overflow-y-auto rounded-t-[28px] bg-white shadow-2xl sm:rounded-[28px]',
+    dialog: 'max-h-[92vh] overflow-y-auto overscroll-contain rounded-t-[28px] bg-white shadow-2xl sm:rounded-[28px]',
     close: 'right-4 top-4 bg-white/90 text-neutral-700 shadow-sm hover:bg-neutral-100 hover:text-neutral-900',
   },
   // Прозрачный контейнер на тёмном фоне — для галерей и медиа
@@ -19,24 +19,29 @@ const VARIANTS = {
 
 export function Modal({ isOpen, onClose, label, variant = 'card', className, children }) {
   const dialogRef = useRef(null)
+  const { isMounted, isClosing } = usePresence(isOpen)
   const styles = VARIANTS[variant]
 
-  useLockBodyScroll(isOpen)
+  useLockBodyScroll(isMounted)
   useEscapeKey(isOpen, onClose)
   useRestoreFocus(isOpen, dialogRef)
 
-  if (!isOpen) return null
+  if (!isMounted) return null
 
   return createPortal(
     <div className="fixed inset-0 z-50 flex items-end justify-center sm:items-center sm:p-6">
-      <div aria-hidden="true" onClick={onClose} className={cn('absolute inset-0 animate-fade-in', styles.backdrop)} />
+      <div
+        aria-hidden="true"
+        onClick={onClose}
+        className={cn('absolute inset-0', styles.backdrop, isClosing ? 'animate-fade-out' : 'animate-fade-in')}
+      />
       <div
         ref={dialogRef}
         role="dialog"
         aria-modal="true"
         aria-label={label}
         tabIndex={-1}
-        className={cn('relative w-full animate-modal-in outline-none', styles.dialog, className)}
+        className={cn('relative w-full outline-none', styles.dialog, isClosing ? 'animate-modal-out' : 'animate-modal-in', className)}
       >
         <button
           type="button"

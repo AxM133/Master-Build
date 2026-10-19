@@ -1,5 +1,7 @@
 import { CategoryCard } from '@/entities/category'
-import { Skeleton } from '@/shared/ui'
+import { Reveal, Skeleton } from '@/shared/ui'
+
+const COLUMNS = 4
 
 export function CategoryGrid({ categories, isLoading, skeletonCount }) {
   return (
@@ -8,7 +10,11 @@ export function CategoryGrid({ categories, isLoading, skeletonCount }) {
         ? Array.from({ length: skeletonCount }, (_, index) => (
             <Skeleton key={index} className="h-[210px] rounded-[28px] md:h-[230px] lg:h-[263px]" />
           ))
-        : categories.map((category) => <CategoryCard key={category.id} category={category} />)}
+        : categories.map((category, index) => (
+            <Reveal key={category.id} delay={(index % COLUMNS) * 80}>
+              <CategoryCard category={category} />
+            </Reveal>
+          ))}
     </div>
   )
 }

@@ -1,4 +1,5 @@
-import pavingTile from '../assets/paving-tile.svg'
+import { GridIcon, ShieldCheckIcon, TruckIcon } from '@/shared/ui'
+import pavingTile from '@/shared/assets/patterns/paving-tile.svg'
 
 export const HERO = {
   title: 'Тротуарная плитка в Волоколамске напрямую от производителя',
@@ -9,5 +10,14 @@ export const HERO = {
     tileSize: 480,
     duration: 16,
   },
-  action: { label: 'Каталог', href: '#catalog' },
+  actions: {
+    primary: { label: 'Каталог', href: '#catalog' },
+    secondary: { label: 'Рассчитать стоимость', href: '#top-products' },
+  },
+  highlights: [
+    { id: 'factory', icon: GridIcon, text: 'Собственное производство' },
+    { id: 'delivery', icon: TruckIcon, text: 'Доставка манипулятором' },
+    { id: 'quality', icon: ShieldCheckIcon, text: 'Качество по ГОСТ' },
+  ],
+  scrollTarget: '#catalog',
 }

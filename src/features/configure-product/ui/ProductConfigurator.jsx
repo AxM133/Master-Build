@@ -12,11 +12,11 @@ import { ConfiguratorSummary } from './ConfiguratorSummary'
 import { PricePerMeter } from './PricePerMeter'
 import { ReserveToggle } from './ReserveToggle'
 
-export function ProductConfigurator({ product, initialColor, onSubmit, onClose }) {
+export function ProductConfigurator({ product, initialColor, onSubmit, onClose, onOpenCart }) {
   const configurator = useProductConfigurator({ product, initialColor, onSubmit })
 
   if (configurator.submitted) {
-    return <ConfiguratorSuccess item={configurator.submitted} onClose={onClose} />
+    return <ConfiguratorSuccess item={configurator.submitted} onClose={onClose} onOpenCart={onOpenCart} />
   }
 
   return (

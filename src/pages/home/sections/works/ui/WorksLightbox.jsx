@@ -1,11 +1,11 @@
 import { Modal } from '@/shared/ui'
 import { LightboxArrow } from './LightboxArrow'
 
-export function WorksLightbox({ items, index, onClose, onPrev, onNext }) {
-  const item = index === null ? null : items[index]
+export function WorksLightbox({ items, index, isOpen, onClose, onPrev, onNext }) {
+  const item = items[index]
 
   return (
-    <Modal isOpen={item !== null} onClose={onClose} label="Просмотр фото работ" variant="bare" className="max-w-[960px]">
+    <Modal isOpen={isOpen} onClose={onClose} label="Просмотр фото работ" variant="bare" className="max-w-[960px]">
       {item && (
         <figure>
           <div className="relative">

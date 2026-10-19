@@ -1,39 +1,34 @@
-import { CartIndicator } from '@/features/cart'
+import { openCallbackModal } from '@/features/request-callback'
+import { cn } from '@/shared/lib'
 import { Container, Logo } from '@/shared/ui'
-import { useMobileMenu } from '../model/useMobileMenu'
-import { MenuToggle } from './MenuToggle'
+import { useHeader } from '../model/useHeader'
+import { HeaderActions } from './HeaderActions'
+import { MobileMenu } from './MobileMenu'
 import { NavLinks } from './NavLinks'
 import { TopBar } from './TopBar'
 
-export function Header({ onCallbackClick }) {
-  const menu = useMobileMenu()
+// TopBar и строка навигации — соседи, чтобы sticky держался на всю высоту страницы
+export function Header() {
+  const { menu, isScrolled, isActive } = useHeader()
 
   return (
-    <header className="bg-white">
-      <TopBar onCallbackClick={onCallbackClick} />
-
-      <Container className="flex items-center justify-between py-4">
-        <Logo />
-        <nav aria-label="Основная навигация" className="hidden lg:block">
-          <NavLinks className="flex gap-8 text-xs font-semibold text-neutral-900" />
-        </nav>
-        <div className="flex items-center gap-2">
-          <CartIndicator />
-          <MenuToggle isOpen={menu.isOpen} onToggle={menu.toggle} />
-        </div>
-      </Container>
-
-      {menu.isOpen && (
-        <nav aria-label="Мобильная навигация" className="border-t border-neutral-200 lg:hidden">
-          <Container>
-            <NavLinks
-              className="flex flex-col py-2 text-sm font-semibold text-neutral-900"
-              linkClassName="block py-2"
-              onLinkClick={menu.close}
-            />
-          </Container>
-        </nav>
-      )}
-    </header>
+    <>
+      <TopBar onCallbackClick={openCallbackModal} />
+      <header
+        className={cn(
+          'sticky top-0 z-40 border-b bg-white/90 backdrop-blur-md transition-shadow duration-300',
+          isScrolled ? 'border-neutral-200/70 shadow-header' : 'border-transparent',
+        )}
+      >
+        <Container className={cn('flex items-center justify-between gap-6 transition-[padding] duration-300', isScrolled ? 'py-2' : 'py-3 lg:py-4')}>
+          <Logo />
+          <nav aria-label="Основная навигация" className="hidden lg:block">
+            <NavLinks isActive={isActive} />
+          </nav>
+          <HeaderActions isScrolled={isScrolled} onMenuOpen={menu.open} />
+        </Container>
+      </header>
+      <MobileMenu isOpen={menu.isOpen} onClose={menu.close} isActive={isActive} onCallbackClick={openCallbackModal} />
+    </>
   )
 }

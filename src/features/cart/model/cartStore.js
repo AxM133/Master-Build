@@ -1,3 +1,5 @@
+import { calculateOrder } from '@/entities/product'
+
 const STORAGE_KEY = 'masterbuild:cart'
 
 function readItems() {
@@ -25,33 +27,48 @@ function setItems(next) {
   listeners.forEach((listener) => listener())
 }
 
-const isSamePosition = (a, b) => a.productId === b.productId && a.color === b.color
+const withArea = (item, area) => {
+  // позиции, сохранённые до появления piecesPerSquareMeter, — восстанавливаем расход из штук и площади
+  const piecesPerSquareMeter = item.piecesPerSquareMeter ?? item.pieces / item.area
 
-// Одинаковый товар того же цвета не дублируется — площадь, штуки и сумма складываются
+  return {
+    ...item,
+    ...calculateOrder({ area, piecesPerSquareMeter, price: item.price }),
+    piecesPerSquareMeter,
+    area,
+  }
+}
+
+// Тот же товар того же цвета не дублируется — площадь складывается и пересчитывается
 export function addToCart(item) {
-  const existing = items.find((current) => isSamePosition(current, item))
+  const id = `${item.productId}-${item.color}`
+  const existing = items.find((current) => current.id === id)
 
   if (!existing) {
-    setItems([...items, { ...item, id: `${item.productId}-${item.color}` }])
+    setItems([...items, { ...item, id }])
     return
   }
 
-  setItems(
-    items.map((current) =>
-      current === existing
-        ? {
-            ...current,
-            area: current.area + item.area,
-            pieces: current.pieces + item.pieces,
-            total: current.total == null || item.total == null ? null : current.total + item.total,
-          }
-        : current,
-    ),
-  )
+  setItems(items.map((current) => (current === existing ? withArea(current, current.area + item.area) : current)))
 }
 
+export function updateCartItemArea(id, area) {
+  setItems(items.map((item) => (item.id === id ? withArea(item, area) : item)))
+}
+
+// Возвращает удалённую позицию и её место — чтобы можно было отменить удаление
 export function removeFromCart(id) {
+  const index = items.findIndex((item) => item.id === id)
+  if (index === -1) return null
+
+  const removed = items[index]
   setItems(items.filter((item) => item.id !== id))
+  return { item: removed, index }
+}
+
+export function restoreCartItem({ item, index }) {
+  if (items.some((current) => current.id === item.id)) return
+  setItems([...items.slice(0, index), item, ...items.slice(index)])
 }
 
 export function clearCart() {
