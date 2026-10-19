@@ -10,4 +10,8 @@
   body {
     @apply bg-white font-sans text-neutral-900 antialiased;
   }
+
+  :focus-visible {
+    @apply outline outline-2 outline-offset-2 outline-primary;
+  }
 }

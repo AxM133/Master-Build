@@ -117,3 +117,30 @@ export const ShieldCheckIcon = (props) => (
     <polyline points="9 12 11 14 15 10" />
   </Icon>
 )
+
+export const MinusIcon = (props) => (
+  <Icon {...props}>
+    <line x1="5" y1="12" x2="19" y2="12" />
+  </Icon>
+)
+
+export const CheckIcon = (props) => (
+  <Icon {...props}>
+    <polyline points="20 6 9 17 4 12" />
+  </Icon>
+)
+
+export const EyeIcon = (props) => (
+  <Icon {...props}>
+    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+    <circle cx="12" cy="12" r="3" />
+  </Icon>
+)
+
+export const CartIcon = (props) => (
+  <Icon {...props}>
+    <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" />
+    <line x1="3" y1="6" x2="21" y2="6" />
+    <path d="M16 10a4 4 0 0 1-8 0" />
+  </Icon>
+)

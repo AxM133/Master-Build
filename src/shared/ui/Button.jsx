@@ -3,6 +3,7 @@ import { cn } from '@/shared/lib'
 const VARIANTS = {
   primary: 'bg-primary text-white hover:bg-primary-hover',
   light: 'bg-white text-neutral-900 hover:bg-neutral-100',
+  outline: 'border-2 border-neutral-200 bg-white text-neutral-900 hover:border-primary hover:text-primary',
 }
 
 const SIZES = {
@@ -13,8 +14,8 @@ const SIZES = {
 
 export function Button({ variant = 'primary', size = 'md', href, type = 'button', className, children, ...props }) {
   const classes = cn(
-    'inline-flex items-center justify-center rounded-full font-bold transition-colors',
-    'focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary',
+    'inline-flex items-center justify-center gap-2 rounded-full font-bold transition-colors',
+    'disabled:cursor-not-allowed disabled:opacity-50',
     VARIANTS[variant],
     SIZES[size],
     className,

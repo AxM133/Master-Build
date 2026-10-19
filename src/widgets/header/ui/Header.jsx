@@ -1,3 +1,4 @@
+import { CartIndicator } from '@/features/cart'
 import { Container, Logo } from '@/shared/ui'
 import { useMobileMenu } from '../model/useMobileMenu'
 import { MenuToggle } from './MenuToggle'
@@ -16,7 +17,10 @@ export function Header({ onCallbackClick }) {
         <nav aria-label="Основная навигация" className="hidden lg:block">
           <NavLinks className="flex gap-8 text-xs font-semibold text-neutral-900" />
         </nav>
-        <MenuToggle isOpen={menu.isOpen} onToggle={menu.toggle} />
+        <div className="flex items-center gap-2">
+          <CartIndicator />
+          <MenuToggle isOpen={menu.isOpen} onToggle={menu.toggle} />
+        </div>
       </Container>
 
       {menu.isOpen && (

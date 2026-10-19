@@ -1,44 +1,32 @@
-import { Picture, PlusIcon } from '@/shared/ui'
-import { formatPrice } from '../lib/formatPrice'
+import { getColorPrice } from '../lib/getColorPrice'
+import { ProductAddButton } from './ProductAddButton'
+import { ProductColors } from './ProductColors'
+import { ProductMedia } from './ProductMedia'
+import { ProductPrices } from './ProductPrices'
+import { ProductSpecs } from './ProductSpecs'
 
-export function ProductCard({ product, onAdd }) {
-  const { name, image, size, perSquareMeter, colors, prices } = product
+export function ProductCard({ product, selectedColor, onColorSelect, onOpen }) {
+  const { name, image, badge, size, perSquareMeter, colors, prices } = product
+  const activePrice = getColorPrice(prices, selectedColor)
 
   return (
-    <article className="flex overflow-hidden rounded-2xl bg-white shadow-card">
-      <div className="flex min-w-0 flex-1 flex-col p-5">
-        <Picture src={image} alt={name} fit="contain" className="mb-4 h-36 w-full rounded-lg" />
-        <h3 className="text-sm font-bold text-neutral-900">{name}</h3>
-        <ul className="mt-2 space-y-0.5 text-xs text-neutral-600">
-          <li>Размер: {size}</li>
-          <li>Количество: {perSquareMeter} шт/м.кв</li>
-          <li>Цвета в наличии: {colors.length}</li>
-        </ul>
-        <ul className="mt-3 flex flex-wrap gap-1.5" aria-label="Доступные цвета">
-          {colors.map((color) => (
-            <li key={color} className="h-3.5 w-3.5 rounded-sm" style={{ backgroundColor: color }} />
-          ))}
-        </ul>
+    <article className="group/card relative flex overflow-hidden rounded-[28px] bg-white shadow-card transition duration-300 hover:-translate-y-1 hover:shadow-card-hover">
+      <div className="flex min-w-0 flex-1 flex-col px-4 pb-[22px] pt-5 sm:px-[23px]">
+        <ProductMedia image={image} name={name} badge={badge} onOpen={onOpen} />
+        <h3 className="mt-6 text-sm font-bold text-neutral-900">
+          <button type="button" onClick={onOpen} className="text-left transition-colors hover:text-primary">
+            {name}
+          </button>
+        </h3>
+        <ProductSpecs size={size} perSquareMeter={perSquareMeter} colorsCount={colors.length} />
+        <ProductColors colors={colors} selected={selectedColor} onSelect={onColorSelect} />
       </div>
 
-      <div className="flex w-32 shrink-0 flex-col bg-dark p-4 text-white sm:w-36">
-        <dl className="space-y-2">
-          {prices.map(({ color, price }) => (
-            <div key={color}>
-              <dt className="text-[11px] font-semibold">{color}</dt>
-              <dd className="text-[10px] text-neutral-300">{formatPrice(price)}</dd>
-            </div>
-          ))}
-        </dl>
-        <button
-          type="button"
-          onClick={() => onAdd?.(product)}
-          aria-label={`Добавить «${name}»`}
-          className="mt-auto flex h-8 w-8 items-center justify-center self-end rounded-full bg-primary transition-colors hover:bg-primary-hover"
-        >
-          <PlusIcon className="h-4 w-4" />
-        </button>
+      <div className="w-[130px] shrink-0 bg-dark px-4 pb-20 pt-[22px] text-white sm:w-[180px] sm:px-[23px]">
+        <ProductPrices prices={prices} activeColor={activePrice?.color} />
       </div>
+
+      <ProductAddButton label="Рассчитать и добавить в заявку" onClick={onOpen} />
     </article>
   )
 }

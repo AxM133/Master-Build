@@ -1,2 +1,7 @@
+export { clamp } from './clamp'
 export { cn } from './cn'
+export { formatNumber } from './formatNumber'
 export { toTelHref } from './toTelHref'
+export { useEscapeKey } from './useEscapeKey'
+export { useLockBodyScroll } from './useLockBodyScroll'
+export { useRestoreFocus } from './useRestoreFocus'

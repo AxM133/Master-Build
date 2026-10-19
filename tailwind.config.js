@@ -4,8 +4,8 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: { DEFAULT: '#E05100', hover: '#C24600' },
-        dark: { DEFAULT: '#3C3C3C', 900: '#2E2E2E' },
+        primary: { DEFAULT: '#E05100', hover: '#C24600', light: '#FF7A2E' },
+        dark: { DEFAULT: '#404040', 900: '#2E2E2E' },
       },
       fontFamily: {
         sans: ['Montserrat', 'ui-sans-serif', 'system-ui', 'sans-serif'],
@@ -18,9 +18,30 @@ export default {
         'pattern-rise': {
           to: { transform: 'translate3d(0, calc(-1 * var(--tile-size)), 0)' },
         },
+        'fade-in': {
+          from: { opacity: '0' },
+          to: { opacity: '1' },
+        },
+        'fade-up': {
+          from: { opacity: '0', transform: 'translateY(12px)' },
+          to: { opacity: '1', transform: 'translateY(0)' },
+        },
+        'modal-in': {
+          from: { opacity: '0', transform: 'translateY(32px) scale(0.98)' },
+          to: { opacity: '1', transform: 'translateY(0) scale(1)' },
+        },
+        pop: {
+          '0%': { transform: 'scale(1)' },
+          '40%': { transform: 'scale(1.12)' },
+          '100%': { transform: 'scale(1)' },
+        },
       },
       animation: {
         'pattern-rise': 'pattern-rise 14s linear infinite',
+        'fade-in': 'fade-in 200ms ease-out',
+        'fade-up': 'fade-up 400ms cubic-bezier(0.16, 1, 0.3, 1) both',
+        'modal-in': 'modal-in 320ms cubic-bezier(0.16, 1, 0.3, 1)',
+        pop: 'pop 320ms ease-out',
       },
     },
   },
