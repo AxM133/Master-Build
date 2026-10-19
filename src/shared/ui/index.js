@@ -1,5 +1,6 @@
 export { Button } from './Button'
 export { Container } from './Container'
+export { InfinitePattern } from './InfinitePattern'
 export { Logo } from './Logo'
 export { Picture } from './Picture'
 export { Section } from './Section'

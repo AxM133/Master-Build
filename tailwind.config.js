@@ -14,6 +14,14 @@ export default {
         card: '0 4px 24px rgba(0, 0, 0, 0.12)',
         'card-hover': '0 8px 32px rgba(0, 0, 0, 0.18)',
       },
+      keyframes: {
+        'pattern-rise': {
+          to: { transform: 'translate3d(0, calc(-1 * var(--tile-size)), 0)' },
+        },
+      },
+      animation: {
+        'pattern-rise': 'pattern-rise 14s linear infinite',
+      },
     },
   },
   plugins: [],
