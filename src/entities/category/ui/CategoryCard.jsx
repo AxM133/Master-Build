@@ -6,10 +6,17 @@ export function CategoryCard({ category }) {
   return (
     <a
       href={href}
-      className="group flex flex-col items-center rounded-2xl bg-white p-5 shadow-card transition hover:-translate-y-1 hover:shadow-card-hover"
+      className="group flex h-[210px] flex-col rounded-[28px] bg-white shadow-card transition duration-300 hover:-translate-y-1 hover:shadow-card-hover md:h-[230px] lg:h-[263px]"
     >
-      <Picture src={image} alt={title} fit="contain" className="aspect-square w-full rounded-lg" />
-      <span className="mt-4 text-center text-xs font-semibold text-neutral-900 transition-colors group-hover:text-primary">
+      <div className="flex flex-1 items-center justify-center px-4 pt-4">
+        <Picture
+          src={image}
+          alt={title}
+          fit="contain"
+          className="max-h-[90px] max-w-full transition-transform duration-300 group-hover:scale-105 md:max-h-[100px] lg:max-h-[120px]"
+        />
+      </div>
+      <span className="px-3 pb-5 text-center text-xs font-bold leading-snug text-neutral-900 transition-colors group-hover:text-primary lg:pb-[26px] lg:text-sm">
         {title}
       </span>
     </a>

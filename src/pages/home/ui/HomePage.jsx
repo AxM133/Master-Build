@@ -1,27 +1,21 @@
-import { useCategories } from '@/entities/category'
-import { useTopProducts } from '@/entities/product'
-import { ABOUT, ADVANTAGES, HERO, PRODUCTION, WORKS } from '../model'
-import { AboutSection } from './AboutSection'
-import { AdvantagesSection } from './AdvantagesSection'
-import { CatalogSection } from './CatalogSection'
-import { HeroSection } from './HeroSection'
-import { ProductionSection } from './ProductionSection'
-import { TopProductsSection } from './TopProductsSection'
-import { WorksSection } from './WorksSection'
+import { AboutSection } from '../sections/about'
+import { AdvantagesSection } from '../sections/advantages'
+import { CatalogSection } from '../sections/catalog'
+import { HeroSection } from '../sections/hero'
+import { ProductionSection } from '../sections/production'
+import { TopProductsSection } from '../sections/top-products'
+import { WorksSection } from '../sections/works'
 
 export function HomePage() {
-  const categories = useCategories()
-  const topProducts = useTopProducts()
-
   return (
     <>
-      <HeroSection {...HERO} />
-      <CatalogSection categories={categories.data ?? []} isLoading={categories.isPending} />
-      <AboutSection {...ABOUT} />
-      <TopProductsSection products={topProducts.data ?? []} isLoading={topProducts.isPending} />
-      <ProductionSection {...PRODUCTION} />
-      <WorksSection {...WORKS} />
-      <AdvantagesSection {...ADVANTAGES} />
+      <HeroSection />
+      <CatalogSection />
+      <AboutSection />
+      <TopProductsSection />
+      <ProductionSection />
+      <WorksSection />
+      <AdvantagesSection />
     </>
   )
 }

@@ -1,0 +1,1 @@
+export { WORKS } from './content'

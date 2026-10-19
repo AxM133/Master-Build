@@ -1,0 +1,1 @@
+export { ADVANTAGES } from './content'

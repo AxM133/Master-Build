@@ -4,15 +4,15 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: { DEFAULT: '#F26A1B', hover: '#D85A0F' },
+        primary: { DEFAULT: '#E05100', hover: '#C24600' },
         dark: { DEFAULT: '#3C3C3C', 900: '#2E2E2E' },
       },
       fontFamily: {
         sans: ['Montserrat', 'ui-sans-serif', 'system-ui', 'sans-serif'],
       },
       boxShadow: {
-        card: '0 4px 24px rgba(0, 0, 0, 0.12)',
-        'card-hover': '0 8px 32px rgba(0, 0, 0, 0.18)',
+        card: '3px 4px 18px rgba(0, 0, 0, 0.2)',
+        'card-hover': '4px 10px 28px rgba(0, 0, 0, 0.24)',
       },
       keyframes: {
         'pattern-rise': {
