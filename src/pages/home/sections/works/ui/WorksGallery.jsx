@@ -1,11 +1,11 @@
-import { Picture } from '@/shared/ui'
+import { WorkCard } from './WorkCard'
 
-export function WorksGallery({ items }) {
+export function WorksGallery({ items, onOpen }) {
   return (
-    <ul className="mx-auto mt-10 flex max-w-[870px] flex-wrap justify-center gap-6">
-      {items.map(({ id, image, alt }) => (
-        <li key={id} className="w-full overflow-hidden rounded-2xl sm:w-[calc(50%-12px)] lg:w-[calc((100%-48px)/3)]">
-          <Picture src={image} alt={alt} className="aspect-[4/3] w-full transition-transform duration-300 hover:scale-105" />
+    <ul className="mx-auto mt-10 flex max-w-[1052px] flex-wrap justify-center gap-4 sm:gap-6 lg:mt-[79px] lg:gap-x-[31px] lg:gap-y-10">
+      {items.map(({ id, image, alt }, index) => (
+        <li key={id} className="w-full sm:w-[calc(50%-12px)] lg:w-[330px]">
+          <WorkCard image={image} alt={alt} onOpen={() => onOpen(index)} />
         </li>
       ))}
     </ul>

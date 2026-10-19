@@ -144,3 +144,106 @@ export const CartIcon = (props) => (
     <path d="M16 10a4 4 0 0 1-8 0" />
   </Icon>
 )
+
+export const CraneTruckIcon = (props) => (
+  <Icon viewBox="0 0 64 48" {...props}>
+    <rect x="2" y="30" width="40" height="5" />
+    <path d="M42 35V18h11l7 8v9z" />
+    <path d="M46 21h6l4 5H46z" />
+    <circle cx="10" cy="40" r="3.5" />
+    <circle cx="19" cy="40" r="3.5" />
+    <circle cx="51" cy="40" r="3.5" />
+    <path d="M34 30V13M38 30V13M34 13h4M34 13 15 3M38 13 15 3" />
+    <path d="M15 3v9m0 0a2 2 0 1 0 2 2" />
+  </Icon>
+)
+
+export const BrickWallIcon = (props) => (
+  <Icon viewBox="0 0 56 44" {...props}>
+    <path d="M2 4h16v8H2zM20 4h16v8H20z" />
+    <path d="M2 14h7v8H2zM11 14h16v8H11zM29 14h7v8h-7z" />
+    <path d="M2 24h16v8H2zM20 24h16v8H20z" />
+    <path d="M2 34h7v8H2zM11 34h16v8H11zM29 34h7v8h-7z" />
+    <path d="M42 4h8v8h-8zM42 14h8v8h-8zM42 24h8v8h-8zM42 34h8v8h-8z" />
+  </Icon>
+)
+
+export const AwardStarIcon = (props) => (
+  <Icon viewBox="0 0 48 48" {...props}>
+    <circle cx="24" cy="19" r="15" />
+    <circle cx="24" cy="19" r="11" />
+    <polygon points="24.00 11.50 25.88 16.41 31.13 16.68 27.04 19.99 28.41 25.07 24.00 22.20 19.59 25.07 20.96 19.99 16.87 16.68 22.12 16.41" />
+    <path d="M14 30 9 42l6-1.5 3 5 4.5-11M34 30l5 12-6-1.5-3 5-4.5-11" />
+  </Icon>
+)
+
+export const ChevronLeftIcon = (props) => (
+  <Icon {...props}>
+    <polyline points="15 18 9 12 15 6" />
+  </Icon>
+)
+
+export const ChevronRightIcon = (props) => (
+  <Icon {...props}>
+    <polyline points="9 18 15 12 9 6" />
+  </Icon>
+)
+
+export const ZoomInIcon = (props) => (
+  <Icon {...props}>
+    <circle cx="11" cy="11" r="7" />
+    <line x1="21" y1="21" x2="16" y2="16" />
+    <line x1="11" y1="8" x2="11" y2="14" />
+    <line x1="8" y1="11" x2="14" y2="11" />
+  </Icon>
+)
+
+export const ChecklistIcon = (props) => (
+  <Icon viewBox="0 0 64 64" {...props}>
+    <rect x="13" y="10" width="38" height="50" rx="2" />
+    <rect x="18" y="15" width="28" height="40" />
+    <rect x="24" y="6" width="16" height="8" rx="1" />
+    <circle cx="32" cy="4" r="1.8" />
+    <path d="m21 23 2 2 4-4M30 23h12M21 31l2 2 4-4M30 31h12M21 39l2 2 4-4M30 39h12M21 47l2 2 4-4M30 47h12" />
+  </Icon>
+)
+
+export const UserSearchIcon = (props) => (
+  <Icon viewBox="0 0 64 64" {...props}>
+    <circle cx="32" cy="17" r="11" />
+    <path d="M10 60v-4a20 20 0 0 1 20-20h4a20 20 0 0 1 20 20v4" />
+    <circle cx="33" cy="46" r="5" />
+    <path d="m36.5 49.5 5 5" />
+  </Icon>
+)
+
+export const WorkerIcon = (props) => (
+  <Icon viewBox="0 0 64 64" {...props}>
+    <path d="M20 21a12 12 0 0 1 24 0" />
+    <path d="M16 21h32v4H16zM29 9h6v8h-6z" />
+    <path d="M21 25v4a11 11 0 0 0 22 0v-4" />
+    <path d="M27 39v4l5 5 5-5v-4" />
+    <path d="M12 60v-6a11 11 0 0 1 11-11h4M37 43h4a11 11 0 0 1 11 11v6M24 54v6M40 54v6" />
+  </Icon>
+)
+
+export const DeliveryCheckIcon = (props) => (
+  <Icon viewBox="0 0 64 64" {...props}>
+    <rect x="18" y="12" width="26" height="28" rx="1" />
+    <path d="M44 22h9l7 9v9H44M18 40h26" />
+    <circle cx="26" cy="46" r="4.5" />
+    <circle cx="52" cy="46" r="4.5" />
+    <polyline points="25 26 30 31 38 22" />
+    <path d="M3 18h10M6 26h7M3 34h10" />
+  </Icon>
+)
+
+export const MoneyIcon = (props) => (
+  <Icon viewBox="0 0 64 64" {...props}>
+    <rect x="4" y="22" width="46" height="28" rx="1" />
+    <path d="M9 22v-5h46v28h-5M14 17v-5h46v28h-5" />
+    <circle cx="27" cy="36" r="8" />
+    <path d="M25 41V31h3.5a2.5 2.5 0 0 1 0 5H23.5M23.5 38.5H30" />
+    <path d="M8 31v-5h5M46 31v-5h-5M8 41v5h5M46 41v5h-5" />
+  </Icon>
+)

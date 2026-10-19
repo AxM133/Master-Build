@@ -11,7 +11,7 @@ export function TopProductsSection() {
     <Section id={TOP_PRODUCTS.id} className="lg:pb-[120px] lg:pt-28">
       <Container>
         <SectionTitle>{TOP_PRODUCTS.title}</SectionTitle>
-        <SectionDescription className="mt-4 max-w-xl text-sm">{TOP_PRODUCTS.subtitle}</SectionDescription>
+        <SectionDescription size="sm" className="mt-4 max-w-xl">{TOP_PRODUCTS.subtitle}</SectionDescription>
         <div className="mt-8 flex justify-center">
           <SegmentedControl options={TOP_PRODUCTS.sortOptions} value={sort} onChange={setSort} label={TOP_PRODUCTS.sortLabel} />
         </div>

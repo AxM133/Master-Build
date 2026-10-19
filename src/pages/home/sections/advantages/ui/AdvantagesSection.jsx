@@ -4,7 +4,7 @@ import { AdvantagesGrid } from './AdvantagesGrid'
 
 export function AdvantagesSection() {
   return (
-    <Section id={ADVANTAGES.id} dark>
+    <Section id={ADVANTAGES.id} dark className="lg:py-[120px]">
       <Container>
         <SectionTitle>{ADVANTAGES.title}</SectionTitle>
         <AdvantagesGrid items={ADVANTAGES.items} />

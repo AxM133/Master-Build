@@ -30,6 +30,10 @@ export default {
           from: { opacity: '0', transform: 'translateY(32px) scale(0.98)' },
           to: { opacity: '1', transform: 'translateY(0) scale(1)' },
         },
+        'pulse-ring': {
+          '0%': { transform: 'scale(1)', opacity: '0.6' },
+          '100%': { transform: 'scale(1.7)', opacity: '0' },
+        },
         pop: {
           '0%': { transform: 'scale(1)' },
           '40%': { transform: 'scale(1.12)' },
@@ -42,6 +46,7 @@ export default {
         'fade-up': 'fade-up 400ms cubic-bezier(0.16, 1, 0.3, 1) both',
         'modal-in': 'modal-in 320ms cubic-bezier(0.16, 1, 0.3, 1)',
         pop: 'pop 320ms ease-out',
+        'pulse-ring': 'pulse-ring 2s cubic-bezier(0, 0, 0.2, 1) infinite',
       },
     },
   },

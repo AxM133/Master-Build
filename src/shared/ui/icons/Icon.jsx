@@ -1,9 +1,9 @@
 import { cn } from '@/shared/lib'
 
-export function Icon({ className, children, ...props }) {
+export function Icon({ viewBox = '0 0 24 24', className, children, ...props }) {
   return (
     <svg
-      viewBox="0 0 24 24"
+      viewBox={viewBox}
       fill="none"
       stroke="currentColor"
       strokeWidth={1.5}
